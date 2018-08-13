@@ -18,7 +18,8 @@ public class MainActivity extends Activity {
 		
 		//Remove title bar
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.main);
+
+		setContentView(R.layout.main);
         
         mWebView = (WebView) findViewById(R.id.activity_main_webview);
        
@@ -34,32 +35,26 @@ public class MainActivity extends Activity {
 		mWebView.setWebViewClient(new MyAppWebViewClient());
       
 		// Loads a Page when there is no internet
-		//mWebView.setWebViewClient(new WebViewClient() {
-  	    //public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-        //mWebView.loadUrl("file:///android_asset/nointernet.html");
-    //}
-//});
+		/*mWebView.setWebViewClient(new WebViewClient() {
+			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+				mWebView.loadUrl("file:///android_asset/nointernet.html");
+			}
+		});*/
 	
 		mWebView.setDownloadListener(new DownloadListener() {       
 
-				@Override
-				public void onDownloadStart(String url, String userAgent,
-											String contentDisposition, String mimetype,
-											long contentLength) {
-					DownloadManager.Request request = new DownloadManager.Request(
-						Uri.parse(url));
+			@Override
+			public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+				DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+				request.allowScanningByMediaScanner();
+				request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED); //Notify client once download is completed!
+				DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+				dm.enqueue(request);
+				Toast.makeText(getApplicationContext(), "Montessorian! The File is Being Downloaded", Toast.LENGTH_LONG).show();
+			}
 
-					request.allowScanningByMediaScanner();
-					request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED); //Notify client once download is completed!
-					//request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "Name of your downloadble file goes here, example: Mathematics II ");
-					DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-					dm.enqueue(request);
-					Toast.makeText(getApplicationContext(), "Montessorian! The File is Being Downloaded", //To notify the Client that the file is being downloaded
-								   Toast.LENGTH_LONG).show();
-
-				}
-			});
-
+		});
+ 
         mWebView.loadUrl("https://hcmontessori.000webhostapp.com/account");
 		
       }
