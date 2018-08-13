@@ -20,6 +20,7 @@ android {
 }
 
 dependencies {
+	compile 'com.google.firebase:firebase-core:+'
 	compile 'com.google.firebase:firebase-messaging:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
