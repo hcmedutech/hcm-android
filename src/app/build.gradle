@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.hcmedutech.montessori"
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -20,5 +20,7 @@ android {
 }
 
 dependencies {
+	compile 'com.google.firebase:firebase-messaging:+'
+	compile 'com.google.firebase:firebase-core:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
