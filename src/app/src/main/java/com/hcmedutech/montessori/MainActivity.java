@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
        	webSettings.setDomStorageEnabled(true);
 		
       	// Force links and redirects to open in the WebView instead of in a browser
-		mWebView.setWebViewClient(new WebViewClient());
+		//mWebView.setWebViewClient(new WebViewClient());
 
 		// Stop local links and redirects from opening in browser instead of WebView
 		mWebView.setWebViewClient(new MyAppWebViewClient());
