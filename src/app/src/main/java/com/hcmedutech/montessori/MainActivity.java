@@ -21,15 +21,21 @@ public class MainActivity extends Activity {
 
 		setContentView(R.layout.main);
         
-        mWebView = (WebView) findViewById(R.id.activity_main_webview);
+        mWebView = findViewById(R.id.activity_main_webview);
+		
+		mWebView.setVerticalScrollBarEnabled(false);
        
        	// Enable Javascript
 		WebSettings webSettings = mWebView.getSettings();
 		webSettings.setJavaScriptEnabled(true);
        	webSettings.setDomStorageEnabled(true);
+		webSettings.setSaveFormData(false);
+		webSettings.setUserAgentString("hcm-android-app");
+		
+		mWebView.setOverScrollMode(View.OVER_SCROLL_NEVER);
 		
       	// Force links and redirects to open in the WebView instead of in a browser
-		mWebView.setWebViewClient(new WebViewClient());
+		//mWebView.setWebViewClient(new WebViewClient());
 
 		// Stop local links and redirects from opening in browser instead of WebView
 		mWebView.setWebViewClient(new MyAppWebViewClient());

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="@android:style/Theme.Material.Light">
+    <style name="NoActionBar" parent="@android:style/Theme.Material.Light">
     	<!-- Main theme colors -->
     <!--   your app branding color for the app bar -->
 		<item name="android:colorPrimary">#2e8b57</item>
@@ -8,6 +8,8 @@
 		<item name="android:colorPrimaryDark">#297d4e</item>
     <!--   theme UI controls like checkboxes and text fields -->
 		<item name="android:colorAccent">#2e8b57</item>
-    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    	<item name="android:windowDrawsSystemBarBackgrounds">true</item>
+		<item name = "android:windowActionBar">false</item>
+        <item name = "android:windowNoTitle">true</item>
 	</style>
 </resources>
