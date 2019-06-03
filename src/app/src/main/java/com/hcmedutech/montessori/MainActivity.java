@@ -1,11 +1,10 @@
 package com.hcmedutech.montessori;
 
 import android.app.*;
-import android.os.*;
-import android.webkit.*;
-import android.view.*;
 import android.net.*;
-import java.util.*;
+import android.os.*;
+import android.view.*;
+import android.webkit.*;
 import android.widget.*;
 
 public class MainActivity extends Activity {
@@ -21,7 +20,7 @@ public class MainActivity extends Activity {
 
 		setContentView(R.layout.main);
         
-        mWebView = findViewById(R.id.activity_main_webview);
+        mWebView = (WebView) findViewById(R.id.activity_main_webview);
 		
 		mWebView.setVerticalScrollBarEnabled(false);
        
